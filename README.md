@@ -21,7 +21,7 @@ In some cases you need to create random numbers between 4 and 8 digits, so this 
 - Max of digit repeatation 
 - Global and Inline Configuration
 - DI (IVerificoder)
-- Use Group Code (coming soon)
+- Use Group Code (ComingSoon)
 
 
 ## Install
