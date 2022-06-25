@@ -18,7 +18,7 @@ In some cases you need to create random numbers between 4 and 8 digits, so this 
 ## Features (Configuration)
 
 - Code Length 
-- Count of digit repeatation 
+- Max of digit repeatation 
 - DI (IVerificoder)
 - Use Group Code (coming soon)
 
