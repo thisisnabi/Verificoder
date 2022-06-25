@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>thisisnabi.$(AssemblyName)</PackageId>
+    <PackageId>$(AssemblyName)</PackageId>
     <Authors>Nabi Karampoor</Authors>
     <Company>Nilesoft</Company>
     <Description>Generate your customized Verification Code on dotNet core.</Description>
@@ -16,6 +16,9 @@
     <PackageProjectUrl>https://thisisnabi.ir/packages/Verificoder</PackageProjectUrl>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Version>1.0.0.0</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
