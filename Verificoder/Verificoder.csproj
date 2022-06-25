@@ -4,6 +4,22 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>thisisnabi.$(AssemblyName)</PackageId>
+    <Authors>Nabi Karampoor</Authors>
+    <Company>Nilesoft</Company>
+    <Description>Generate your customized Verification Code on dotNet core.</Description>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>verification code, 2 step factor ,.net core, asp .net core, c#</PackageTags>
+    <RepositoryUrl>https://github.com/thisisnabi/Verificoder</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageProjectUrl>https://thisisnabi.ir/packages/Verificoder</PackageProjectUrl>
+    <AssemblyVersion>6.0.0.0</AssemblyVersion>
+    <Version>6.0.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+  </ItemGroup>
 
 </Project>

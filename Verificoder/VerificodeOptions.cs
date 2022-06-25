@@ -10,5 +10,6 @@ namespace Verificoder
     {
         public int DefaultLength { get; set; } = 5;
         public int DefualtMaxRepeatNumber { get; set; } = 1;
+        public bool StartWithZero { get; set; } = false;
     }
 }

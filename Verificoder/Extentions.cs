@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Verificoder
 {
     public static class Extentions
     {
-        public static void IServiceCollection AddVerificode(this IServiceCollection sc) 
+        public static IServiceCollection AddVerificoder(this IServiceCollection sc, Action<VerificodeOptions> options)
         {
-            sc.AddSingletone<IVerificode, Verificode>();
+            sc.Configure(options);
+            sc.AddSingleton<IVerificoder, Verificoder>();
+
+            return sc;
         }
     }
 }

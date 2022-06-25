@@ -1,7 +1,7 @@
 ﻿
 namespace Verificoder
 {
-    public interface IVerificode
+    public interface IVerificoder
     {
         string TakeOne();
         string TakeOne(int length);

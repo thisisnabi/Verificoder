@@ -1,14 +1,14 @@
-﻿using Microsoft.Extensions.Options;
-
-namespace Verificoder
+﻿namespace Verificoder
 {
-    public class Verificode : IVerificode
+    using Microsoft.Extensions.Options;
+
+    public class Verificoder : IVerificoder
     {
         private readonly VerificodeOptions _options;
 
-        public Verificode(IOptions<VerificodeOptions> options)
+        public Verificoder(IOptions<VerificodeOptions> options)
         {
-            _options = _options.Value;
+            _options = options.Value;
         }
 
         public string TakeOne()
@@ -54,7 +54,7 @@ namespace Verificoder
             throw new NotImplementedException();
         }
 
-        public static void EnsureConfiguration(int length, int maxRepeatNumber)
+        private void EnsureConfiguration(int length, int maxRepeatNumber)
         {
             if (length == 0)
                 throw new ArgumentException("length can not be zero.");
@@ -66,17 +66,30 @@ namespace Verificoder
                 throw new ArgumentException("maxRepeatNumber mus lower than length.");   
         }
 
-        public static string Generator(int length, int maxRepeatNumber)
+        private string Generator(int length, int maxRepeatNumber)
         {
             // throw clear exception
             EnsureConfiguration(length, maxRepeatNumber);
 
+            var digits = new List<int>(length);
 
-            // here we calculate the number
+            for (int i = 0; i < length; i++)
+            {
+                int digit;
 
+
+                do
+                {
+                    digit = new Random().Next((_options.StartWithZero ? 0 : 1), 9);
+                }
+                while (digits.Any(d => d == digit) || 
+                        digits.Where(d => d == digit).Count() <= maxRepeatNumber);
+
+                digits.Add(digit);
+            } 
 
             // it's not implemented
-            return string.Empty;
+            return string.Join("", digits);
         }
     }
 }
