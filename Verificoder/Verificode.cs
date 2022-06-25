@@ -77,18 +77,16 @@
             {
                 int digit;
 
-
                 do
                 {
-                    digit = new Random().Next((_options.StartWithZero ? 0 : 1), 9);
+                    digit = new Random().Next((false ? 0 : 1), 9);
                 }
-                while (digits.Any(d => d == digit) || 
-                        digits.Where(d => d == digit).Count() <= maxRepeatNumber);
+                while (digits.Any(d => d == digit) &&
+                        digits.Where(d => d == digit).Count() >= maxRepeatNumber);
 
                 digits.Add(digit);
-            } 
+            }
 
-            // it's not implemented
             return string.Join("", digits);
         }
     }
