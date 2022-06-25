@@ -63,7 +63,7 @@ private IActionResult SendVerifyCode(string phone)
 {
     var verifyCode = _verificoder.TakeOne();
 
-    var result _smsService.SendSms(phone, $"you account verification code is :{verifyCode}");
+    var result _smsService.SendSms(phone, $"your account verification code is :{verifyCode}");
 
     return Ok();
 }
