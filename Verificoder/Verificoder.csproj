@@ -14,8 +14,8 @@
     <RepositoryUrl>https://github.com/thisisnabi/Verificoder</RepositoryUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageProjectUrl>https://thisisnabi.ir/packages/Verificoder</PackageProjectUrl>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Version>1.0.0.0</Version>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <Version>1.0.0.1</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
