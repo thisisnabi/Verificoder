@@ -73,13 +73,13 @@
 
             var digits = new List<int>(length);
 
-            for (int i = 0; i < length; i++)
+            for (int index = 0; index < length; index++)
             {
                 int digit;
 
                 do
-                {
-                    digit = new Random().Next((_options.StartWithZero  ? 0 : 1), 9);
+                {  
+                    digit = new Random().Next((_options.StartWithZero || index != 0 ? 0 : 1), 9);
                 }
                 while (digits.Any(d => d == digit) &&
                         digits.Where(d => d == digit).Count() >= maxRepeatNumber);
