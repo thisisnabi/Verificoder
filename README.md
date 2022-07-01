@@ -44,7 +44,9 @@ services.AddVerificoder();
 services.AddVerificoder(options => {
       options.StartWithZero = true; // default is false 
       options.DefaultLength = 5; // default is 5
-      options.DefualtMaxRepeatNumber = 2; // default is 1
+      options.DefualtMaxRepeatNumber = 2; // default is 1,
+      // if you want use scoped code
+      options.ScopeCodeAbsoluteExpiration = TimeSpan.FromMinutes(2); // default is TimeSpan.FromMinutes(1) 
 });
 ```
 
