@@ -1,15 +1,21 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace Verificoder
+﻿namespace Verificoder
 {
+    using Microsoft.Extensions.DependencyInjection;
+    
     public static class Extentions
     {
-        public static IServiceCollection AddVerificoder(this IServiceCollection sc, Action<VerificodeOptions> options)
+        public static IServiceCollection AddVerificoder(this IServiceCollection services, Action<VerificoderOptions> options)
         {
-            sc.Configure(options);
-            sc.AddSingleton<IVerificoder, Verificoder>();
+            // requirement
+            services.AddMemoryCache(options => { 
+                options.ExpirationScanFrequency = TimeSpan.FromSeconds(5);
+            });
 
-            return sc;
+            // services
+            services.Configure(options);
+            services.AddSingleton<IVerificoder, Verificoder>();
+
+            return services;
         }
     }
 }
