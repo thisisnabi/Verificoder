@@ -51,7 +51,7 @@ services.AddVerificoder(options => {
 ```
 
 
-## Usage/Example
+## Usage/Simple mode
 ```csharp
 private readonly IVerificoder _verificoder;
 
@@ -69,6 +69,36 @@ private IActionResult SendVerifyCode(string phone)
     return Ok();
 }
 ```
+
+
+## Usage/Scoped Mode
+```csharp
+private readonly IVerificoder _verificoder;
+
+public AccountController(IVerificoder verificoder)
+{
+    _verificoder = verificoder;
+}
+
+private IActionResult SendVerifyCode(string phone)
+{
+       // if last code not expired, you can't take new code.
+       if (_verificoder.CanTakeOnScope(phone))
+       {
+           var verifyCode = _verificoder.TakeOnScope(phone);
+                 
+           var message = string
+               .Format("your account verification code is :{0}", verifyCode);
+
+           _smsService.SendSms(phone, message);
+
+           return Ok("Code was Sent to the Phone number.");
+       }
+ 
+       return BadRequest("You can't ");
+}
+```
+
 
 
 ## Inline/Configuration
