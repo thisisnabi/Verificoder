@@ -118,7 +118,13 @@ public IActionResult CreateAccount(string phone,string userValidationCode)
 ```csharp
 // length 7 and default max repeat(1)
 var verifyCode = _verificoder.TakeOne(7);
+// scoped mode
+var verifyCode = _verificoder.TakeOnScope(phone,7);
+
+
 
 // length 7 and max repeat(3)
 var verifyCode = _verificoder.TakeOne(7,3);
+// scoped mode
+var verifyCode = _verificoder.TakeOnScope(phone,7,3);
 ```
