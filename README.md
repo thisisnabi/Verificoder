@@ -83,6 +83,7 @@ public AccountController(IVerificoder verificoder)
 private IActionResult SendVerifyCode(string phone)
 {
        // if last code not expired, you can't take new code.
+       // you can set Expiration time when adding option to DI, [ScopeCodeAbsoluteExpiration]
        if (_verificoder.CanTakeOnScope(phone))
        {
            var verifyCode = _verificoder.TakeOnScope(phone);
