@@ -20,7 +20,7 @@ In some cases, you need to create random numbers between 4 and 8 digits, so this
 - Max of digit repeatation 
 - Global and Inline Configuration
 - DI (IVerificoder)
-- Use Group Code (ComingSoon)
+- Caching the code by phone and validation it
 
 
 ## Install
@@ -60,7 +60,7 @@ public AccountController(IVerificoder verificoder)
     _verificoder = verificoder;
 }
 
-private IActionResult SendVerifyCode(string phone)
+public IActionResult SendVerifyCode(string phone)
 {
     var verifyCode = _verificoder.TakeOne();
 
@@ -80,7 +80,7 @@ public AccountController(IVerificoder verificoder)
     _verificoder = verificoder;
 }
 
-private IActionResult SendVerifyCode(string phone)
+public IActionResult SendVerifyCode(string phone)
 {
        // if last code not expired, you can't take new code.
        // you can set Expiration time when adding option to DI, [ScopeCodeAbsoluteExpiration]
@@ -97,6 +97,18 @@ private IActionResult SendVerifyCode(string phone)
        }
  
        return BadRequest("You can't ");
+}
+
+
+public IActionResult CreateAccount(string phone,string userValidationCode)
+{
+
+        if(!_verificoder.IsValidOnScope(phone,userValidationCode))
+        {
+            return BadRequest("Pease enter valid codes.");
+        }
+
+       // other creation account code
 }
 ```
 
