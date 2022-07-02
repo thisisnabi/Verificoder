@@ -105,7 +105,7 @@ public IActionResult CreateAccount(string phone,string userValidationCode)
 
         if(!_verificoder.IsValidOnScope(phone,userValidationCode))
         {
-            return BadRequest("Pease enter valid codes.");
+            return BadRequest("Please enter valid codes.");
         }
 
        // other creation account code
