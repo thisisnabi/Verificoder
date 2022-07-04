@@ -5,7 +5,7 @@ Generate your customized Verification Code on .Net Core.
 
 In some cases, you need to create random numbers between 4 and 8 digits, so this package helps you to have a general code generator for all parts of your program in the .NET modular structure.
 
-
+#nuget 
 
 ## Authors
 
