@@ -2,7 +2,7 @@
 {
     using Microsoft.Extensions.DependencyInjection;
     
-    public static class Extentions
+    public static class Extensions
     {
         public static IServiceCollection AddVerificoder(this IServiceCollection services, Action<VerificoderOptions> options)
         {
